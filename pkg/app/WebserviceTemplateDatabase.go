@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"multiheaded/webservice_template/pkg/datamodel"
 	"os"
 )
 
@@ -27,11 +26,6 @@ func openDatabase() (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	// setup the datamodel within the database
-	dat.AutoMigrate(
-		&datamodel.Dummy{},
-	)
 
 	return dat, nil
 }

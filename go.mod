@@ -1,4 +1,4 @@
-module multiheaded/webservice_template
+module github.com/multiheaded/go-WebserviceTemplate
 
 go 1.18
 

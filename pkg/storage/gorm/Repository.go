@@ -2,8 +2,8 @@ package gorm
 
 import (
 	"fmt"
+	"github.com/multiheaded/go-WebserviceTemplate/pkg/datamodel"
 	"gorm.io/gorm"
-	"multiheaded/webservice_template/pkg/datamodel"
 )
 
 type Repository[T any] struct {

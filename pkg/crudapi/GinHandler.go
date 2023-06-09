@@ -2,7 +2,7 @@ package crudapi
 
 import (
 	"fmt"
-	"multiheaded/webservice_template/pkg/datamodel"
+	"github.com/multiheaded/go-WebserviceTemplate/pkg/datamodel"
 	"net/http"
 	"reflect"
 	"strconv"

@@ -2,10 +2,10 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/multiheaded/go-WebserviceTemplate/pkg/crudapi"
+	"github.com/multiheaded/go-WebserviceTemplate/pkg/datamodel"
+	storage "github.com/multiheaded/go-WebserviceTemplate/pkg/storage/gorm"
 	"gorm.io/gorm"
-	"multiheaded/webservice_template/pkg/crudapi"
-	"multiheaded/webservice_template/pkg/datamodel"
-	gorm2 "multiheaded/webservice_template/pkg/storage/gorm"
 )
 
 // A WebserviceTemplateApp serves as a storage for the instances to access database, object storage, ...
@@ -24,7 +24,7 @@ func (app WebserviceTemplateApp) Run() {
 
 func routeEndpoints[T any](grp *gin.RouterGroup, database *gorm.DB) error {
 	// generic controller mapping CRUD functions  directly to database operations
-	repo := gorm2.NewGormRepository[T](database)
+	repo := storage.NewGormRepository[T](database)
 
 	// generic API handler calling CRUD functions of controller given HTTP requests
 	handler := crudapi.NewGinCRUDHandler[T](repo)
@@ -59,6 +59,11 @@ func NewInstance() (*WebserviceTemplateApp, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	// setup the datamodel within the database
+	db.AutoMigrate(
+		&datamodel.Dummy{},
+	)
 
 	lh := &WebserviceTemplateApp{
 		DB:        db,

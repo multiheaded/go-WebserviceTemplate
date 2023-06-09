@@ -1,7 +1,7 @@
 package main
 
 import (
-	"multiheaded/webservice_template/pkg/app"
+	"github.com/multiheaded/go-WebserviceTemplate/pkg/app"
 )
 
 // Entry point for the application
