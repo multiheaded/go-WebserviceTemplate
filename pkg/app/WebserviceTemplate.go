@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/multiheaded/go-WebserviceTemplate/pkg/crudapi"
 	"github.com/multiheaded/go-WebserviceTemplate/pkg/datamodel"
-	storage "github.com/multiheaded/go-WebserviceTemplate/pkg/storage/gorm"
+	"github.com/multiheaded/go-WebserviceTemplate/pkg/storage"
 	"gorm.io/gorm"
 )
 
